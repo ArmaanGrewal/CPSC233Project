@@ -15,6 +15,8 @@ public class Main extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/ApplicationScene.fxml"));
+			loginController controller = (loginController) loader.getController();
+			controller.loginStage = primaryStage;
 			Scene scene = new Scene(root,450,225);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("J & A Banking Institution");
