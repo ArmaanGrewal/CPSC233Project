@@ -18,6 +18,7 @@ public class loginController {
 
     @FXML
     private TextField passwordTextfield;
+    
 
     @FXML
     private TextField usernameTextfield;
@@ -39,7 +40,17 @@ public class loginController {
 
     @FXML
     void signIntoUserAccount(ActionEvent event) {
-    	System.out.println("Sign In pressed");
+    	FXMLLoader loader2 = new FXMLLoader();
+    	VBox root2 = new VBox();
+    	try {
+			root2 = loader2.load(new FileInputStream("src/application/BankAccountScene.fxml"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	Scene bankAccountScene = new Scene(root2, 450, 225);
+    	loginStage.setScene(bankAccountScene);
 
     }
 
