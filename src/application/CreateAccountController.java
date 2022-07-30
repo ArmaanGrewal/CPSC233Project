@@ -17,7 +17,7 @@ public class CreateAccountController {
 	
 	Stage loanStage;
 	
-    private ArrayList<BankAccount> existingAccounts;
+    private ArrayList<BankAccount> existingAccounts = new ArrayList<BankAccount>();
     
     @FXML
     private TextField usersNameTextfield;

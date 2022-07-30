@@ -40,7 +40,6 @@ public class BankAccount {
 	
 	public String setPassword(String password1) {
 		String passwordError = "";
-		boolean validPassword = true;
 		int lowerCaseCounter = 0;
 		int upperCaseCounter = 0;
 		int digitCounter = 0;
@@ -60,19 +59,15 @@ public class BankAccount {
 				}
 			}
 			if (lowerCaseCounter < 1) {
-				validPassword = false; 
 				passwordError = "Check Password: Must contain at least 1 lowercase character.";
 			}
 			else if (upperCaseCounter < 1) {
-				validPassword = false; 
 				passwordError = "Check Password: Must contain at least 1 uppercase character.";
 			}
 			else if (digitCounter < 1) {
-				validPassword = false; 
 				passwordError = "Check Password: Must contain at least 1 digit.";
 			}
 			else {
-				validPassword = true;
 				passwordError = "";
 				password = password1;
 			}

@@ -88,7 +88,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Note* Password must contain an uppercase, a lowercase, and a special character, and must be 8 characters in length.">
+            <Label text="Note* Password must contain an uppercase, a lowercase, a digit, and must be 8 characters in length.">
                <font>
                   <Font name="Times New Roman" size="13.0" />
                </font>

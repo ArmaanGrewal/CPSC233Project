@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,7 +35,7 @@ public class loginController {
     void createUserAccount(ActionEvent event) throws IOException {	
     	Parent root1 = FXMLLoader.load(getClass().getResource("CreateAccountScene.fxml"));
     	loginStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-    	Scene createAccountScene = new Scene(root1, 450, 225);
+    	Scene createAccountScene = new Scene(root1, 450, 275);
     	loginStage.setScene(createAccountScene);
     	loginStage.show();
     }
@@ -45,10 +46,35 @@ public class loginController {
     	passwordErrorLabel.setText("");
     	String usernameEntered = usernameTextfield.getText();
     	String passwordEntered = passwordTextfield.getText();
+    	account = new CreateAccountController();
+    	ArrayList<BankAccount> accounts = account.getExistingAccounts();
+    	boolean usernameMatch = true;
+    	int matchIndex = 0;
     	boolean noSignInErrors = true; 
-    	BankAccount userAccount = new BankAccount();
-    	usernameErrorLabel.setText(userAccount.setUsername(usernameEntered));
-    	passwordErrorLabel.setText(userAccount.setPassword(passwordEntered));
+    	if (accounts.size() > 0) {
+    		for (int accountIndex = 0; accountIndex < accounts.size(); accountIndex++) {
+        		if (!accounts.get(accountIndex).getUsername().equals(usernameEntered)) {
+        			usernameMatch = false;
+        		}
+        		else {
+        			usernameMatch = true;
+        			matchIndex = accountIndex;
+        			break;
+        		}
+        	}
+    	}
+    	else {
+    		usernameMatch = false;
+    	}
+    	if (usernameMatch) {
+    		if (!accounts.get(matchIndex).getPassword().equals(passwordEntered)) {
+    			passwordErrorLabel.setText("Incorrect password, please try again.");
+    		}
+    	}
+    	else {
+    		usernameErrorLabel.setText("This username does not exist, "
+    				+ "please proceed to the 'Create Account' option.");
+    	}
     	if (!usernameErrorLabel.getText().equals("") || !passwordErrorLabel.getText().equals("")) {
     		noSignInErrors = false;
     	}
