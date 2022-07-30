@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="214.0" prefWidth="366.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+<VBox prefHeight="214.0" prefWidth="366.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.bankSceneController">
    <children>
       <HBox prefHeight="0.0" prefWidth="200.0">
          <children>
@@ -42,7 +41,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Deposit" textAlignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#toDepositWindow" text="Deposit" textAlignment="CENTER">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -50,7 +49,7 @@
                   <Font name="Times New Roman" size="13.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="Withdraw">
+            <Button mnemonicParsing="false" onAction="#toWithdrawWindow" text="Withdraw">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -90,7 +89,7 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="10.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Sign Out">
+            <Button mnemonicParsing="false" onAction="#toLoginWindow" text="Sign Out">
                <font>
                   <Font name="Times New Roman" size="13.0" />
                </font>

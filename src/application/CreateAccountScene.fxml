@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="275.0" prefWidth="617.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+<VBox prefHeight="275.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateAccountController">
    <children>
       <HBox prefHeight="0.0" prefWidth="200.0">
          <children>
@@ -98,7 +97,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" text="Create Account">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToLoans" text="Create Account">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
