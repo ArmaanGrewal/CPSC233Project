@@ -19,8 +19,8 @@ public class BankAccount {
 			for (char letter : username1.toCharArray()) {
 				if (!Character.isDigit(letter)) {
 					validUsername = false;
-					usernameError = "The username must requires a 16-digit card number. Please don't include the character "
-							+ letter + ".";
+					usernameError = "The username must requires a 16-digit card number. Please don't include the character '"
+							+ letter + "' .";
 				}
 				else {
 					validUsername = true;

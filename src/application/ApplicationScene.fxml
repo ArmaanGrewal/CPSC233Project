@@ -62,6 +62,27 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
          <children>
+            <Label fx:id="usernameErrorLabel" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
+         <children>
+            <Label fx:id="passwordErrorLabel" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
+         <children>
             <Button mnemonicParsing="false" onAction="#signIntoUserAccount" text="Sign In">
                <font>
                   <Font name="Times New Roman" size="15.0" />

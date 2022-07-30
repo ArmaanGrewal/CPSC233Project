@@ -13,7 +13,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("ApplicationScene.fxml"));
-			Scene scene = new Scene(root,450,225);
+			Scene scene = new Scene(root,475,250);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("J & A Banking Institution");
 			primaryStage.show();
