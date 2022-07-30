@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="118.0" prefWidth="461.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="118.0" prefWidth="461.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DepositController">
    <children>
       <HBox prefHeight="0.0" prefWidth="200.0">
          <children>
@@ -52,7 +52,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="10.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Deposit">
+            <Button mnemonicParsing="false" onAction="#backToBalance" text="Deposit">
                <font>
                   <Font name="Times New Roman" size="13.0" />
                </font>

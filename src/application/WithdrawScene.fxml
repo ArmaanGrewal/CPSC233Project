@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="130.0" prefWidth="487.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+<VBox prefHeight="130.0" prefWidth="487.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.WithdrawController">
    <children>
       <HBox prefHeight="0.0" prefWidth="200.0">
          <children>
@@ -54,7 +53,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="10.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Withdraw">
+            <Button mnemonicParsing="false" onAction="#backtoAccountBalance" text="Withdraw">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
