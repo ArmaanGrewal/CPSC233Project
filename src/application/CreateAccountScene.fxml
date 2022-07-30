@@ -42,7 +42,7 @@
                         <Font name="Times New Roman" size="13.0" />
                      </font>
                   </Label>
-                  <Label text="Create a Password:">
+                  <Label text="Create a New Password:">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -62,22 +62,22 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TextField>
+                  <TextField fx:id="usersNameTextfield">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField>
+                  <TextField fx:id="cardNumberTextfield">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField>
+                  <TextField fx:id="passwordTextfield">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField>
+                  <TextField fx:id="confirmPasswordTextfield">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </VBox.margin>
@@ -89,6 +89,33 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label text="Note* Password must contain an uppercase, a lowercase, and a special character, and must be 8 characters in length.">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
+         <children>
+            <Label fx:id="cardErrorLabel" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
+         <children>
+            <Label fx:id="passwordErrorLabel" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
+         <children>
+            <Label fx:id="confirmPasswordErrorLabel" textAlignment="CENTER" textFill="RED">
                <font>
                   <Font name="Times New Roman" size="13.0" />
                </font>

@@ -13,13 +13,13 @@ public class BankAccount {
 		String usernameError = "";
 		boolean validUsername = true;
 		if (username1.length() != 16) {
-			usernameError = "The username must requires a 16-digit card number.";
+			usernameError = "The username must require a 16-digit card number.";
 		}
 		else if (username1.length() == 16) {
 			for (char letter : username1.toCharArray()) {
 				if (!Character.isDigit(letter)) {
 					validUsername = false;
-					usernameError = "The username must requires a 16-digit card number. Please don't include the character '"
+					usernameError = "The username must require a 16-digit card number. Please don't include the character '"
 							+ letter + "' .";
 				}
 				else {

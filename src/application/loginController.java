@@ -15,11 +15,12 @@ import javafx.stage.Stage;
 public class loginController {
 	
 	Stage loginStage;
+	
+	private CreateAccountController account;
 
     @FXML
     private TextField passwordTextfield;
     
-
     @FXML
     private TextField usernameTextfield;
     
@@ -30,7 +31,7 @@ public class loginController {
     private Label passwordErrorLabel;
     
     @FXML
-    void createUserAccount(ActionEvent event) throws IOException {
+    void createUserAccount(ActionEvent event) throws IOException {	
     	Parent root1 = FXMLLoader.load(getClass().getResource("CreateAccountScene.fxml"));
     	loginStage = (Stage)((Node)event.getSource()).getScene().getWindow();
     	Scene createAccountScene = new Scene(root1, 450, 225);
