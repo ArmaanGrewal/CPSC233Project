@@ -27,7 +27,7 @@ public class bankSceneController {
     void toLoginWindow(ActionEvent event) throws IOException {
     	Parent root1 = FXMLLoader.load(getClass().getResource("ApplicationScene.fxml"));
     	bankAccountStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-    	Scene createAccountScene = new Scene(root1, 450, 225);
+    	Scene createAccountScene = new Scene(root1, 450, 250);
     	bankAccountStage.setScene(createAccountScene);
     	bankAccountStage.show();
     }

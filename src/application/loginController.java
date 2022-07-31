@@ -17,7 +17,7 @@ public class loginController {
 	
 	Stage loginStage;
 	
-	private CreateAccountController account;
+	private CreateAccountController account = new CreateAccountController();
 
     @FXML
     private TextField passwordTextfield;
@@ -46,7 +46,6 @@ public class loginController {
     	passwordErrorLabel.setText("");
     	String usernameEntered = usernameTextfield.getText();
     	String passwordEntered = passwordTextfield.getText();
-    	account = new CreateAccountController();
     	ArrayList<BankAccount> accounts = account.getExistingAccounts();
     	boolean usernameMatch = true;
     	int matchIndex = 0;
