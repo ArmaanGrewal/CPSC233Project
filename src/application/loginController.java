@@ -16,8 +16,6 @@ import javafx.stage.Stage;
 public class loginController {
 	
 	Stage loginStage;
-	
-	private CreateAccountController account = new CreateAccountController();
 
     @FXML
     private TextField passwordTextfield;
@@ -31,9 +29,15 @@ public class loginController {
     @FXML
     private Label passwordErrorLabel;
     
+    private ArrayList<BankAccount> existingAccounts = new ArrayList<BankAccount>();
+    private BankAccount theAccount;
+    
     @FXML
     void createUserAccount(ActionEvent event) throws IOException {	
-    	Parent root1 = FXMLLoader.load(getClass().getResource("CreateAccountScene.fxml"));
+    	FXMLLoader loader1 = new FXMLLoader(getClass().getResource("CreateAccountScene.fxml"));
+    	Parent root1 = loader1.load();
+    	CreateAccountController controller1 = loader1.getController();
+    	controller1.setUserAccount(existingAccounts, theAccount);
     	loginStage = (Stage)((Node)event.getSource()).getScene().getWindow();
     	Scene createAccountScene = new Scene(root1, 450, 275);
     	loginStage.setScene(createAccountScene);
@@ -46,13 +50,12 @@ public class loginController {
     	passwordErrorLabel.setText("");
     	String usernameEntered = usernameTextfield.getText();
     	String passwordEntered = passwordTextfield.getText();
-    	ArrayList<BankAccount> accounts = account.getExistingAccounts();
     	boolean usernameMatch = true;
     	int matchIndex = 0;
     	boolean noSignInErrors = true; 
-    	if (accounts.size() > 0) {
-    		for (int accountIndex = 0; accountIndex < accounts.size(); accountIndex++) {
-        		if (!accounts.get(accountIndex).getUsername().equals(usernameEntered)) {
+    	if (existingAccounts.size() > 0) {
+    		for (int accountIndex = 0; accountIndex < existingAccounts.size(); accountIndex++) {
+        		if (!existingAccounts.get(accountIndex).getUsername().equals(usernameEntered)) {
         			usernameMatch = false;
         		}
         		else {
@@ -66,8 +69,11 @@ public class loginController {
     		usernameMatch = false;
     	}
     	if (usernameMatch) {
-    		if (!accounts.get(matchIndex).getPassword().equals(passwordEntered)) {
+    		if (!existingAccounts.get(matchIndex).getPassword().equals(passwordEntered)) {
     			passwordErrorLabel.setText("Incorrect password, please try again.");
+    		}
+    		else {
+    			theAccount = existingAccounts.get(matchIndex);
     		}
     	}
     	else {
@@ -78,12 +84,20 @@ public class loginController {
     		noSignInErrors = false;
     	}
     	if (noSignInErrors) {
-        	Parent root1 = FXMLLoader.load(getClass().getResource("BankAccountScene.fxml"));
+    		FXMLLoader loader2 = new FXMLLoader(getClass().getResource("BankAccountScene.fxml"));
+        	Parent root2 = loader2.load();
+        	bankSceneController controller2 = loader2.getController();
+        	controller2.setUserAccount(existingAccounts, theAccount);
         	loginStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        	Scene createAccountScene = new Scene(root1, 450, 225);
+        	Scene createAccountScene = new Scene(root2, 450, 225);
         	loginStage.setScene(createAccountScene);
         	loginStage.show();
     	}
+    }
+    
+    public void setUserAccount(ArrayList<BankAccount> anAccountList, BankAccount accountUsed) {
+    	existingAccounts = anAccountList;
+    	theAccount = accountUsed;
     }
 }
 
