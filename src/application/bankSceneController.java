@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class bankSceneController {
@@ -16,6 +17,18 @@ public class bankSceneController {
 	Stage bankAccountStage;
     private ArrayList<BankAccount> existingAccounts = new ArrayList<BankAccount>();
     private BankAccount theAccount;
+    
+    @FXML
+    private Label accountBalanceLabel;
+    
+    @FXML
+    private Label bankLoanLabel;
+    
+    @FXML
+    private Label carLoanLabel;
+    
+    @FXML
+    private Label mortgageLabel;
 	
     @FXML
     void toDepositWindow(ActionEvent event) throws IOException {
@@ -56,6 +69,17 @@ public class bankSceneController {
     public void setUserAccount(ArrayList<BankAccount> anAccountList, BankAccount accountUsed) {
     	existingAccounts = anAccountList;
     	theAccount = accountUsed;
+    	double balance = accountUsed.getAccountBalance();
+    	double bankLoan = accountUsed.getBankLoanAmount();
+    	double bankPMT = accountUsed.calculateBankPMT(bankLoan);
+    	double carLoan = accountUsed.getCarLoanAmount();
+    	double carPMT = accountUsed.calculateCarPMT(carLoan);
+    	double mortgage = accountUsed.getMortgageAmount();
+    	double mortgagePMT = accountUsed.calculateMortgagePMT(mortgage);
+    	accountBalanceLabel.setText("$" + balance);
+    	bankLoanLabel.setText("Bank Loan Monthly Installment: $" + bankPMT);
+    	carLoanLabel.setText("Car Loan Monthly Installment: $" + carPMT);
+    	mortgageLabel.setText("Mortgage Monthly Installment: $" + mortgagePMT);
     }
 
 }
