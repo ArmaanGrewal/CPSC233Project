@@ -87,7 +87,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id="bankLoanError">
+            <Label fx:id="bankLoanError" textAlignment="CENTER" textFill="RED">
                <font>
                   <Font name="Times New Roman" size="13.0" />
                </font>
@@ -96,7 +96,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id="carLoanError">
+            <Label fx:id="carLoanError" textAlignment="CENTER" textFill="RED">
                <font>
                   <Font name="Times New Roman" size="13.0" />
                </font>
@@ -105,7 +105,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id="mortgageError">
+            <Label fx:id="mortgageError" textAlignment="CENTER" textFill="RED">
                <font>
                   <Font name="Times New Roman" size="13.0" />
                </font>

@@ -39,7 +39,7 @@ public class loginController {
     	CreateAccountController controller1 = loader1.getController();
     	controller1.setUserAccount(existingAccounts, theAccount);
     	loginStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-    	Scene createAccountScene = new Scene(root1, 450, 275);
+    	Scene createAccountScene = new Scene(root1, 550, 275);
     	loginStage.setScene(createAccountScene);
     	loginStage.show();
     }

@@ -37,7 +37,7 @@ public class bankSceneController {
     	bankAccountStage = (Stage)((Node)event.getSource()).getScene().getWindow();
     	DepositController controller1 = loader1.getController();
     	controller1.setUserAccount(existingAccounts, theAccount);
-    	Scene createAccountScene = new Scene(root1, 450, 225);
+    	Scene createAccountScene = new Scene(root1, 450, 150);
     	bankAccountStage.setScene(createAccountScene);
     	bankAccountStage.show();
     }
@@ -61,7 +61,7 @@ public class bankSceneController {
     	bankAccountStage = (Stage)((Node)event.getSource()).getScene().getWindow();
     	WithdrawController controller3 = loader3.getController();
     	controller3.setUserAccount(existingAccounts, theAccount);
-    	Scene createAccountScene = new Scene(root3, 450, 225);
+    	Scene createAccountScene = new Scene(root3, 500, 150);
     	bankAccountStage.setScene(createAccountScene);
     	bankAccountStage.show();
     }
@@ -77,9 +77,9 @@ public class bankSceneController {
     	double mortgage = accountUsed.getMortgageAmount();
     	double mortgagePMT = accountUsed.calculateMortgagePMT(mortgage);
     	accountBalanceLabel.setText("$" + balance);
-    	bankLoanLabel.setText("Bank Loan Monthly Installment: $" + bankPMT);
-    	carLoanLabel.setText("Car Loan Monthly Installment: $" + carPMT);
-    	mortgageLabel.setText("Mortgage Monthly Installment: $" + mortgagePMT);
+    	bankLoanLabel.setText(String.format("Bank Loan Monthly Installment: $ %.2f", bankPMT));
+    	carLoanLabel.setText(String.format("Car Loan Monthly Installment: $ %.2f", carPMT));
+    	mortgageLabel.setText(String.format("Mortgage Monthly Installment: $ %.2f", mortgagePMT));
     }
 
 }

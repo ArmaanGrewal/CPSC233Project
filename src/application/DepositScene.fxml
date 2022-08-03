@@ -32,18 +32,27 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <TextField prefHeight="26.0" prefWidth="193.0">
+            <TextField fx:id="depositTextfield" prefHeight="26.0" prefWidth="193.0">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin></TextField>
          </children>
       </HBox>
-      <HBox prefHeight="0.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
          <children>
             <Label text="Enter the amount you would like to deposit into the account: 'Account Balance'">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
+         <children>
+            <Label fx:id="depositErrorLabel" textAlignment="CENTER" textFill="RED">
                <font>
                   <Font name="Times New Roman" size="13.0" />
                </font>
