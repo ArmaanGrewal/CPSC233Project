@@ -18,6 +18,7 @@ public class CreateAccountController {
 	Stage loanStage;
 	
     private ArrayList<BankAccount> existingAccounts = new ArrayList<BankAccount>();
+    private BankAccount theAccount;
     
     @FXML
     private TextField usersNameTextfield;
@@ -66,14 +67,23 @@ public class CreateAccountController {
     	}
     	else {
     		existingAccounts.add(userAccount);
+    		theAccount = userAccount;
     	}
     	if (noCreateAccountErrors) {
-    	  	Parent root1 = FXMLLoader.load(getClass().getResource("loansScene.fxml"));
+    		FXMLLoader loader1 = new FXMLLoader(getClass().getResource("loansScene.fxml"));
+    	  	Parent root1 = loader1.load();
         	loanStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        	LoanController controller1 = loader1.getController();
+        	controller1.setUserAccount(existingAccounts, theAccount);
         	Scene createAccountScene = new Scene(root1, 450, 225);
         	loanStage.setScene(createAccountScene);
         	loanStage.show();
     	}
+    }
+    
+    public void setUserAccount(ArrayList<BankAccount> anAccountList, BankAccount accountUsed) {
+    	existingAccounts = anAccountList;
+    	theAccount = accountUsed;
     }
 
 }
