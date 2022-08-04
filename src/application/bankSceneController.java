@@ -29,6 +29,18 @@ public class bankSceneController {
     
     @FXML
     private Label mortgageLabel;
+    
+    @FXML
+    private Label totalBankLoan;
+    
+    @FXML 
+    private Label totalCarLoan;
+    
+    @FXML
+    private Label totalMortgage;
+    
+    @FXML
+    private Label loanPaymentError;
 	
     @FXML
     void toDepositWindow(ActionEvent event) throws IOException {
@@ -66,6 +78,16 @@ public class bankSceneController {
     	bankAccountStage.show();
     }
     
+    @FXML
+    void payMonthly(ActionEvent event) {
+    	loanPaymentError.setText("");
+    	loanPaymentError.setText(theAccount.payLoans());
+    	accountBalanceLabel.setText(String.format("$ %.2f", theAccount.getAccountBalance()));
+    	totalBankLoan.setText(String.format("Total Outstanding Bank Loan Balance: $ %.2f", theAccount.getBankLoanAmount()));
+    	totalCarLoan.setText(String.format("Total Outstanding Car Loan Balance: $ %.2f", theAccount.getCarLoanAmount()));
+    	totalMortgage.setText(String.format("Total Outstanding Mortgage Balance: $ %.2f", theAccount.getMortgageAmount()));
+    }
+    
     public void setUserAccount(ArrayList<BankAccount> anAccountList, BankAccount accountUsed) {
     	existingAccounts = anAccountList;
     	theAccount = accountUsed;
@@ -78,8 +100,11 @@ public class bankSceneController {
     	double mortgagePMT = accountUsed.calculateMortgagePMT(mortgage);
     	accountBalanceLabel.setText("$" + balance);
     	bankLoanLabel.setText(String.format("Bank Loan Monthly Installment: $ %.2f", bankPMT));
+    	totalBankLoan.setText(String.format("Total Bank Loan Balance: $ %.2f", bankLoan));
     	carLoanLabel.setText(String.format("Car Loan Monthly Installment: $ %.2f", carPMT));
+    	totalCarLoan.setText(String.format("Total Car Loan Balance: $ %.2f", carLoan));
     	mortgageLabel.setText(String.format("Mortgage Monthly Installment: $ %.2f", mortgagePMT));
+    	totalMortgage.setText(String.format("Total Mortgage Balance: $ %.2f", mortgage));
     }
 
 }

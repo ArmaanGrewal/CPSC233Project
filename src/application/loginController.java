@@ -89,7 +89,7 @@ public class loginController {
         	bankSceneController controller2 = loader2.getController();
         	controller2.setUserAccount(existingAccounts, theAccount);
         	loginStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        	Scene createAccountScene = new Scene(root2, 450, 225);
+        	Scene createAccountScene = new Scene(root2, 450, 300);
         	loginStage.setScene(createAccountScene);
         	loginStage.show();
     	}

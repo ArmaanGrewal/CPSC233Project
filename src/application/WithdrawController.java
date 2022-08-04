@@ -35,7 +35,7 @@ public class WithdrawController {
 	    	withdrawStage = (Stage)((Node)event.getSource()).getScene().getWindow();
 	    	bankSceneController controller1 = loader1.getController();
 	    	controller1.setUserAccount(existingAccounts, theAccount);
-	    	Scene createAccountScene = new Scene(root1, 450, 225);
+	    	Scene createAccountScene = new Scene(root1, 450, 300);
 	    	withdrawStage.setScene(createAccountScene);
 	    	withdrawStage.show();
 		}

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="214.0" prefWidth="366.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.bankSceneController">
+<VBox prefHeight="214.0" prefWidth="407.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.bankSceneController">
    <children>
       <HBox prefHeight="0.0" prefWidth="200.0">
          <children>
@@ -59,34 +59,80 @@
             </Button>
          </children>
       </HBox>
-      <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="100.0">
+      <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id="bankLoanLabel" text="Bank Loan Monthly Installment: $....">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Times New Roman" size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="carLoanLabel" text="Car Loan Monthly Installment: $....">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Times New Roman" size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="mortgageLabel" text="Mortgage Monthly Installment: $....">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
+            <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="275.0">
+               <children>
+                  <Label fx:id="bankLoanLabel" text="Bank Loan Monthly Installment: $....">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalBankLoan" text="Total Bank Loan Balance: $...." textFill="GREEN">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="carLoanLabel" text="Car Loan Monthly Installment: $....">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalCarLoan" text="Total Car Loan Balance: $...." textFill="GREEN">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="mortgageLabel" text="Mortgage Monthly Installment: $....">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalMortgage" text="Total Mortgage Balance: $...." textFill="GREEN">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="0.0" prefWidth="150.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#payMonthly" text="Pay Loan Amount">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
+         <children>
+            <Label fx:id="loanPaymentError" textAlignment="CENTER" textFill="RED">
                <font>
                   <Font name="Times New Roman" size="13.0" />
                </font>
             </Label>
          </children>
-      </VBox>
+      </HBox>
       <HBox alignment="CENTER" prefHeight="10.0" prefWidth="200.0">
          <children>
             <Button mnemonicParsing="false" onAction="#toLoginWindow" text="Sign Out">

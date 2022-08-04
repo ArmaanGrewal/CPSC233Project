@@ -11,6 +11,9 @@ public class BankAccountInfo {
 	private int term1 = 5;
 	private int term2 = 10;
 	private double interestYearly = 0.05;
+	private double bankPMT = 0.00;
+	private double carPMT = 0.00;
+	private double mortgagePMT = 0.00;
 	
 	public String setBankLoan(String anAmount) {
 		String bankLoanError = "";
@@ -122,6 +125,7 @@ public class BankAccountInfo {
 		double numerator = aBankLoan * (interestYearly / 12);
 		double denominator = (1 - (Math.pow((1 + (interestYearly/12)), (term1 * -1 * 12))));
 		bankMonthlyPMT = numerator / denominator;
+		bankPMT = bankMonthlyPMT;
 		return bankMonthlyPMT;
 	}
 	
@@ -130,6 +134,7 @@ public class BankAccountInfo {
 		double numerator = aCarLoan * (interestYearly / 12);
 		double denominator = (1 - (Math.pow((1 + (interestYearly/12)), (term1 * -1 * 12))));
 		carMonthlyPMT = numerator / denominator;
+		carPMT = carMonthlyPMT;
 		return carMonthlyPMT;
 	}
 	
@@ -138,6 +143,7 @@ public class BankAccountInfo {
 		double numerator = aMortgage * (interestYearly / 12);
 		double denominator = (1 - (Math.pow((1 + (interestYearly/12)), (term2 * -1 * 12))));
 		mortgageMonthlyPMT = numerator / denominator;
+		mortgagePMT = mortgageMonthlyPMT;
 		return mortgageMonthlyPMT;
 	}
 	
@@ -213,6 +219,23 @@ public class BankAccountInfo {
 			accountBalance -= amountToWithdraw;
 		}
 		return withdrawError;
+	}
+	
+	public String payLoans() {
+		String loanError = "";
+		double totalPMT = bankPMT + carPMT + mortgagePMT;
+		if (bankLoan > 0 || carLoan > 0 || mortgageAmount > 0) {
+			if (totalPMT > accountBalance) {
+				loanError = "Not enough funds in your bank account. Please deposit more!";
+			}
+			else {
+				accountBalance -= totalPMT;
+				bankLoan -= bankPMT;
+				carLoan -= carPMT;
+				mortgageAmount -= mortgagePMT;
+			}
+		}
+		return loanError;
 	}
 	
 	public double getAccountBalance() {
