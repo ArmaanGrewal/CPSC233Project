@@ -12,9 +12,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+// Note: Lines 49-56, 61-68, and 73-80 come from the YouTube video: https://www.youtube.com/watch?v=wxhGKR3PQpo&ab_channel=BroCode
+
 public class bankSceneController {
 
-	Stage bankAccountStage;
+	private Stage bankAccountStage;
     private ArrayList<BankAccount> existingAccounts = new ArrayList<BankAccount>();
     private BankAccount theAccount;
     
@@ -56,7 +58,7 @@ public class bankSceneController {
 
     @FXML
     void toLoginWindow(ActionEvent event) throws IOException {
-    	FXMLLoader loader2 = new FXMLLoader(getClass().getResource("ApplicationScene.fxml"));
+    	FXMLLoader loader2 = new FXMLLoader(getClass().getResource("LoginScene.fxml"));
     	Parent root2 = loader2.load();
     	bankAccountStage = (Stage)((Node)event.getSource()).getScene().getWindow();
     	loginController controller2 = loader2.getController();
@@ -83,29 +85,33 @@ public class bankSceneController {
     	loanPaymentError.setText("");
     	loanPaymentError.setText(theAccount.payLoans());
     	accountBalanceLabel.setText(String.format("$ %.2f", theAccount.getAccountBalance()));
-    	totalBankLoan.setText(String.format("Total Outstanding Bank Loan Balance: $ %.2f", theAccount.getBankLoanAmount()));
-    	totalCarLoan.setText(String.format("Total Outstanding Car Loan Balance: $ %.2f", theAccount.getCarLoanAmount()));
-    	totalMortgage.setText(String.format("Total Outstanding Mortgage Balance: $ %.2f", theAccount.getMortgageAmount()));
+    	totalBankLoan.setText(String.format("Total Bank Loan Balance (Including Interest): $ %.2f", theAccount.getBankInterestIncluded()));
+    	totalCarLoan.setText(String.format("Total Car Loan Balance (Including Interest): $ %.2f", theAccount.getCarInterestIncluded()));
+    	totalMortgage.setText(String.format("Total Mortgage Balance (Including Interest): $ %.2f", theAccount.getMortgageInterestIncluded()));
+    }
+    
+    public void setNewUserAccount(ArrayList<BankAccount> anAccountList, BankAccount accountUsed) {
+    	existingAccounts = anAccountList;
+    	theAccount = accountUsed;
+    	accountBalanceLabel.setText(String.format("$ %.2f", theAccount.getAccountBalance()));
+    	bankLoanLabel.setText(String.format("Bank Loan Monthly Installment: $ %.2f", theAccount.calculateBankPMT(theAccount.getBankLoanAmount())));
+    	totalBankLoan.setText(String.format("Total Bank Loan Balance (Including Interest): $ %.2f", theAccount.getBankInterestIncluded()));
+    	carLoanLabel.setText(String.format("Car Loan Monthly Installment: $ %.2f", theAccount.calculateCarPMT(theAccount.getCarLoanAmount())));
+    	totalCarLoan.setText(String.format("Total Car Loan Balance (Including Interest): $ %.2f", theAccount.getCarInterestIncluded()));
+    	mortgageLabel.setText(String.format("Mortgage Monthly Installment: $ %.2f", theAccount.calculateMortgagePMT(theAccount.getMortgageAmount())));
+    	totalMortgage.setText(String.format("Total Mortgage Balance (Including Interest): $ %.2f", theAccount.getMortgageInterestIncluded()));
     }
     
     public void setUserAccount(ArrayList<BankAccount> anAccountList, BankAccount accountUsed) {
     	existingAccounts = anAccountList;
     	theAccount = accountUsed;
-    	double balance = accountUsed.getAccountBalance();
-    	double bankLoan = accountUsed.getBankLoanAmount();
-    	double bankPMT = accountUsed.calculateBankPMT(bankLoan);
-    	double carLoan = accountUsed.getCarLoanAmount();
-    	double carPMT = accountUsed.calculateCarPMT(carLoan);
-    	double mortgage = accountUsed.getMortgageAmount();
-    	double mortgagePMT = accountUsed.calculateMortgagePMT(mortgage);
-    	accountBalanceLabel.setText("$" + balance);
-    	bankLoanLabel.setText(String.format("Bank Loan Monthly Installment: $ %.2f", bankPMT));
-    	totalBankLoan.setText(String.format("Total Bank Loan Balance: $ %.2f", bankLoan));
-    	carLoanLabel.setText(String.format("Car Loan Monthly Installment: $ %.2f", carPMT));
-    	totalCarLoan.setText(String.format("Total Car Loan Balance: $ %.2f", carLoan));
-    	mortgageLabel.setText(String.format("Mortgage Monthly Installment: $ %.2f", mortgagePMT));
-    	totalMortgage.setText(String.format("Total Mortgage Balance: $ %.2f", mortgage));
+    	accountBalanceLabel.setText(String.format("$ %.2f", theAccount.getAccountBalance()));
+    	bankLoanLabel.setText(String.format("Bank Loan Monthly Installment: $ %.2f", theAccount.getBankPMT()));
+    	totalBankLoan.setText(String.format("Total Bank Loan Monthly Balance (Including Interest): $ %.2f", theAccount.getBankInterestIncluded()));
+    	carLoanLabel.setText(String.format("Car Loan Monthly Installment: $%.2f", theAccount.getCarPMT()));
+    	totalCarLoan.setText(String.format("Total Car Loan Balance (Including Interest): $ %.2f", theAccount.getCarInterestIncluded()));
+    	mortgageLabel.setText(String.format("Mortgage Monthly Installment: $ %.2f", theAccount.getMortgagePMT()));
+    	totalMortgage.setText(String.format("Total Mortgage Balance (Including Interest): $ %.2f", theAccount.getMortgageInterestIncluded()));
     }
-
 }
 

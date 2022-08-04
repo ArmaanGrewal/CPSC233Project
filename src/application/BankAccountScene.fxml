@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="214.0" prefWidth="407.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.bankSceneController">
+<VBox prefHeight="296.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.bankSceneController">
    <children>
       <HBox prefHeight="0.0" prefWidth="200.0">
          <children>
@@ -21,9 +21,9 @@
             </Label>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="500.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="0.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="0.0" prefWidth="500.0">
                <children>
                   <Label text="Account Balance:">
                      <font>
@@ -61,7 +61,7 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="275.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="400.0">
                <children>
                   <Label fx:id="bankLoanLabel" text="Bank Loan Monthly Installment: $....">
                      <VBox.margin>

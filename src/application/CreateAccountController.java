@@ -13,9 +13,11 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+//Note: Lines 75-82 come from the YouTube video: https://www.youtube.com/watch?v=wxhGKR3PQpo&ab_channel=BroCode
+
 public class CreateAccountController {
 	
-	Stage loanStage;
+	private Stage loanStage;
 	
     private ArrayList<BankAccount> existingAccounts = new ArrayList<BankAccount>();
     private BankAccount theAccount;

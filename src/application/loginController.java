@@ -13,9 +13,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+//Note: Lines 39-46, and 89-96 come from the YouTube video: https://www.youtube.com/watch?v=wxhGKR3PQpo&ab_channel=BroCode
+
 public class loginController {
 	
-	Stage loginStage;
+	private Stage loginStage;
 
     @FXML
     private TextField passwordTextfield;
@@ -89,7 +91,7 @@ public class loginController {
         	bankSceneController controller2 = loader2.getController();
         	controller2.setUserAccount(existingAccounts, theAccount);
         	loginStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        	Scene createAccountScene = new Scene(root2, 450, 300);
+        	Scene createAccountScene = new Scene(root2, 500, 300);
         	loginStage.setScene(createAccountScene);
         	loginStage.show();
     	}

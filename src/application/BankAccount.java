@@ -1,6 +1,6 @@
 package application;
 
-public class BankAccount extends BankAccountInfo {
+public class BankAccount extends LoanInfo {
 	
 	private String username;
 	private String password;

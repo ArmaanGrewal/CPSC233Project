@@ -13,9 +13,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+//Note: Lines 35-42 come from the YouTube video: https://www.youtube.com/watch?v=wxhGKR3PQpo&ab_channel=BroCode
+
 public class DepositController {
 	
-	Stage depositStage;
+	private Stage depositStage;
     private ArrayList<BankAccount> existingAccounts = new ArrayList<BankAccount>();
     private BankAccount theAccount;
     
@@ -35,7 +37,7 @@ public class DepositController {
         	depositStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         	bankSceneController controller1 = loader1.getController();
         	controller1.setUserAccount(existingAccounts, theAccount);
-        	Scene createAccountScene = new Scene(root1, 450, 300);
+        	Scene createAccountScene = new Scene(root1, 500, 300);
         	depositStage.setScene(createAccountScene);
         	depositStage.show();
     	}
