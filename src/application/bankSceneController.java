@@ -43,6 +43,9 @@ public class bankSceneController {
     
     @FXML
     private Label loanPaymentError;
+    
+    @FXML
+    private Label welcomeUser;
 	
     @FXML
     void toDepositWindow(ActionEvent event) throws IOException {
@@ -93,6 +96,7 @@ public class bankSceneController {
     public void setNewUserAccount(ArrayList<BankAccount> anAccountList, BankAccount accountUsed) {
     	existingAccounts = anAccountList;
     	theAccount = accountUsed;
+    	welcomeUser.setText("Welcome, " + theAccount.getName());
     	accountBalanceLabel.setText(String.format("$ %.2f", theAccount.getAccountBalance()));
     	bankLoanLabel.setText(String.format("Bank Loan Monthly Installment: $ %.2f", theAccount.calculateBankPMT(theAccount.getBankLoanAmount())));
     	totalBankLoan.setText(String.format("Total Bank Loan Balance (Including Interest): $ %.2f", theAccount.getBankInterestIncluded()));
@@ -105,6 +109,7 @@ public class bankSceneController {
     public void setUserAccount(ArrayList<BankAccount> anAccountList, BankAccount accountUsed) {
     	existingAccounts = anAccountList;
     	theAccount = accountUsed;
+    	welcomeUser.setText("Welcome Back, " + theAccount.getName());
     	accountBalanceLabel.setText(String.format("$ %.2f", theAccount.getAccountBalance()));
     	bankLoanLabel.setText(String.format("Bank Loan Monthly Installment: $ %.2f", theAccount.getBankPMT()));
     	totalBankLoan.setText(String.format("Total Bank Loan Monthly Balance (Including Interest): $ %.2f", theAccount.getBankInterestIncluded()));

@@ -37,7 +37,7 @@ public class DepositController {
         	depositStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         	bankSceneController controller1 = loader1.getController();
         	controller1.setUserAccount(existingAccounts, theAccount);
-        	Scene createAccountScene = new Scene(root1, 500, 300);
+        	Scene createAccountScene = new Scene(root1, 500, 315);
         	depositStage.setScene(createAccountScene);
         	depositStage.show();
     	}

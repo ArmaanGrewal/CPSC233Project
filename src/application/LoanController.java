@@ -54,7 +54,7 @@ public class LoanController {
         	loanStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         	bankSceneController controller1 = loader1.getController();
         	controller1.setNewUserAccount(existingAccounts, theAccount);
-        	Scene createAccountScene = new Scene(root1, 500, 300);
+        	Scene createAccountScene = new Scene(root1, 500, 315);
         	loanStage.setScene(createAccountScene);
         	loanStage.show();
     	}
