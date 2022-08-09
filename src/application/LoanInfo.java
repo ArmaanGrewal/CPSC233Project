@@ -176,9 +176,14 @@ public class LoanInfo extends BankAccountInfo {
 	public double calculateBankPMT(double aBankLoan) {
 		// follow the monthly payment formula to set the bank loan payment amount. (also set the bank loan balance including interest).
 		double bankMonthlyPMT = 0;
+		
+		// calculate the numerator and denominator of the bank loan monthly payment by using the formulas from our previous courses in 
+		// Finance. (5 year 5% annual interest loan). 
 		double numerator = aBankLoan * (0.05 / 12);
 		double denominator = (1 - (Math.pow((1 + (0.05/12)), (5 * -1 * 12))));
 		bankMonthlyPMT = numerator / denominator;
+		
+		// Calculate the bank loan balance including interest by multiplying the monthly payment by the number of payment periods. 
 		interestIncludedBank = bankMonthlyPMT * 60;
 		bankPMT = bankMonthlyPMT;
 		return bankMonthlyPMT;
@@ -194,9 +199,14 @@ public class LoanInfo extends BankAccountInfo {
 	public double calculateCarPMT(double aCarLoan) {
 		// follow the monthly payment formula to set the car loan payment amount. (also set the car loan balance including interest).
 		double carMonthlyPMT = 0;
+		
+		// calculate the numerator and denominator of the car loan monthly payment by using the formulas from our previous courses in 
+		// Finance. (5 year 5% annual interest loan). 
 		double numerator = aCarLoan * (0.05 / 12);
 		double denominator = (1 - (Math.pow((1 + (0.05 /12)), (5 * -1 * 12))));
 		carMonthlyPMT = numerator / denominator;
+		
+		// Calculate the car loan balance including interest by multiplying the monthly payment by the number of payment periods. 
 		interestIncludedCar = carMonthlyPMT * 60;
 		carPMT = carMonthlyPMT;
 		return carMonthlyPMT;
@@ -212,9 +222,14 @@ public class LoanInfo extends BankAccountInfo {
 	public double calculateMortgagePMT(double aMortgage) {
 		// follow the monthly payment formula to set the mortgage payment amount. (also set the mortgage balance including interest).
 		double mortgageMonthlyPMT = 0;
+		
+		// calculate the numerator and denominator of the mortgage monthly payment by using the formulas from our previous courses in 
+		// Finance. (10 year 5% annual interest loan). 
 		double numerator = aMortgage * (0.05 / 12);
 		double denominator = (1 - (Math.pow((1 + (0.05 /12)), (10 * -1 * 12))));
 		mortgageMonthlyPMT = numerator / denominator;
+		
+		// Calculate the mortgage balance including interest by multiplying the monthly payment by the number of payment periods. 
 		interestIncludedMortgage = mortgageMonthlyPMT * 120;
 		mortgagePMT = mortgageMonthlyPMT;
 		return mortgageMonthlyPMT;
