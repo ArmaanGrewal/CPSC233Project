@@ -13,8 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-// Controller for the login window. 
-//Note: Lines 39-46, and 89-96 come from the YouTube video: https://www.youtube.com/watch?v=wxhGKR3PQpo&ab_channel=BroCode
+// Controller for the login window. (LoginScene.fxml)
+// Note: Lines 49-56, and 120-127 come from the YouTube video: https://www.youtube.com/watch?v=wxhGKR3PQpo&ab_channel=BroCode
 
 public class loginController {
 	
@@ -44,12 +44,14 @@ public class loginController {
      */
     @FXML
     void createUserAccount(ActionEvent event) throws IOException {	
+    	// The following block of code comes from this YouTube video: https://www.youtube.com/watch?v=wxhGKR3PQpo&ab_channel=BroCode
+    	// (until line 56).
     	FXMLLoader loader1 = new FXMLLoader(getClass().getResource("CreateAccountScene.fxml"));
     	Parent root1 = loader1.load();
     	CreateAccountController controller1 = loader1.getController();
     	controller1.setUserAccount(existingAccounts, theAccount);
     	loginStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-    	Scene createAccountScene = new Scene(root1, 550, 315);
+    	Scene createAccountScene = new Scene(root1, 550, 330);
     	loginStage.setScene(createAccountScene);
     	loginStage.show();
     }
@@ -113,13 +115,15 @@ public class loginController {
     	// if there are no sign in errors, then switch to the main bank account scene passing the existing accounts and the current account
     	// information. 
     	if (noSignInErrors) {
+    		// The following block of code comes from this YouTube video: https://www.youtube.com/watch?v=wxhGKR3PQpo&ab_channel=BroCode
+    		// (until line 127).
     		FXMLLoader loader2 = new FXMLLoader(getClass().getResource("BankAccountScene.fxml"));
         	Parent root2 = loader2.load();
         	bankSceneController controller2 = loader2.getController();
         	controller2.setUserAccount(existingAccounts, theAccount);
         	loginStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        	Scene createAccountScene = new Scene(root2, 500, 315);
-        	loginStage.setScene(createAccountScene);
+        	Scene bankAccountScene = new Scene(root2, 500, 315);
+        	loginStage.setScene(bankAccountScene);
         	loginStage.show();
     	}
     }

@@ -95,6 +95,15 @@
             </Label>
          </children>
       </HBox>
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="400.0">
+         <children>
+            <Label fx:id="usersNameError" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
       <HBox alignment="CENTER" prefHeight="0.0" prefWidth="0.0">
          <children>
             <Label fx:id="cardErrorLabel" textAlignment="CENTER" textFill="RED">
